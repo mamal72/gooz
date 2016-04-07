@@ -8,7 +8,7 @@ Send the old sh*tty browsers away from your website as simple as a Gooz
 You can install it from [NPM](https://www.npmjs.com/package/gooz):
 
 ```bash
-npm install --save Gooz
+npm install --save gooz
 ```
 
 
