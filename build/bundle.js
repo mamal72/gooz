@@ -55,8 +55,8 @@ var Gooz =
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var DEFAULT_FEATURES = ['addEventListener', 'SVGElement', 'CanvasRenderingContext2D', 'localStorage'];
 	var DEFAULT_OPTIONS = {
+	  features: ['addEventListener', 'SVGElement', 'CanvasRenderingContext2D', 'localStorage'],
 	  globalObject: window,
 	  redirect: false,
 	  timeout: 3000,
@@ -69,16 +69,17 @@ var Gooz =
 
 	var Gooz = function () {
 	  function Gooz() {
-	    var features = arguments.length <= 0 || arguments[0] === undefined ? DEFAULT_FEATURES : arguments[0];
-	    var options = arguments.length <= 1 || arguments[1] === undefined ? DEFAULT_OPTIONS : arguments[1];
+	    var options = arguments.length <= 0 || arguments[0] === undefined ? DEFAULT_OPTIONS : arguments[0];
 
 	    _classCallCheck(this, Gooz);
 
 	    if (!options.globalObject) {
 	      throw new TypeError('No window object detected! :O Am I in a browser?!');
 	    }
-	    this._features = features;
 	    this._options = options;
+	    if (options.redirect) {
+	      this.redirect();
+	    }
 	  }
 
 	  /**
@@ -90,7 +91,7 @@ var Gooz =
 	  _createClass(Gooz, [{
 	    key: 'isGooz',
 	    value: function isGooz() {
-	      return this._features.some(function (feature) {
+	      return this._options.features.some(function (feature) {
 	        return !(feature in window);
 	      });
 	    }
