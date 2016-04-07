@@ -68,11 +68,10 @@ var Gooz =
 	 */
 
 	var Gooz = function () {
-	  function Gooz() {
-	    var options = arguments.length <= 0 || arguments[0] === undefined ? DEFAULT_OPTIONS : arguments[0];
-
+	  function Gooz(props) {
 	    _classCallCheck(this, Gooz);
 
+	    var options = Object.assign({}, DEFAULT_OPTIONS, props);
 	    if (!options.globalObject) {
 	      throw new TypeError('No window object detected! :O Am I in a browser?!');
 	    }

@@ -10,7 +10,8 @@ const DEFAULT_OPTIONS = {
  * Main Gooz class
  */
 export default class Gooz {
-  constructor(options = DEFAULT_OPTIONS) {
+  constructor(props) {
+    const options = Object.assign({}, DEFAULT_OPTIONS, props);
     if (!options.globalObject) {
       throw new TypeError('No window object detected! :O Am I in a browser?!');
     }

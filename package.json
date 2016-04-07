@@ -1,6 +1,6 @@
 {
   "name": "gooz",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Send the old sh*tty browsers away from your website as simple as a Gooz",
   "main": "build/index.js",
   "scripts": {
